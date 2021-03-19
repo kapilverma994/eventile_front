@@ -1,20 +1,8 @@
 <template>
   <div class="mt-5">
     <div class="container col-md-6 text-center jumbotron">
-      <h1 class="mb-5">Register</h1>
+      <h1 class="mb-5">Login</h1>
       <form action="" @submit.prevent="submit">
-        <div class="form-group">
-          <input
-            type="text"
-            name=""
-            class="form-control"
-            id=""
-            v-model="form.name"
-            placeholder="Enter your name"
-          />
-          <error-field :errors="errors" field="name" />
-        </div>
-
         <div class="form-group">
           <input
             type="email"
@@ -33,17 +21,8 @@
           />
           <error-field :errors="errors" field="password" />
         </div>
-        <div class="form-group">
-          <input
-            type="password"
-            class="form-control"
-            v-model="form.password_confirmation"
-            placeholder="Confirm password"
-          />
-        </div>
-        <button type="submit" class="btn btn-primary btn-block">
-          Register
-        </button>
+
+        <button type="submit" class="btn btn-primary btn-block">Login</button>
       </form>
     </div>
   </div>
@@ -57,22 +36,19 @@ export default {
     return {
       form: {
         email: '',
-        name: '',
         password: '',
-        password_confirmation: '',
       },
       errors: {},
     }
   },
-  mounted() {},
   methods: {
     submit() {
       // console.log('hii')
       this.$axios
-        .$post('http://127.0.0.1:8000/api/register', this.form)
+        .$post('api/login', this.form)
         .then((res) => {
           this.form = ''
-          this.$router.push('/login')
+          //   this.$router.push("/");
           console.log(res.data)
           //    this.$notify({
           //       message: "Register Successfully 😍",
