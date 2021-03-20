@@ -45,7 +45,7 @@ export default {
     submit() {
       // console.log('hii')
       this.$axios
-        .$post('api/login', this.form)
+        .$post('http://127.0.0.1:8000/api/login', this.form)
         .then((res) => {
           this.form = ''
           //   this.$router.push("/");
