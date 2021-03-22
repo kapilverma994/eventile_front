@@ -1,9 +1,15 @@
 <template>
   <div>
+    <Header />
     <Nuxt />
   </div>
 </template>
-
+<script>
+import Header from '../components/layouts/header'
+export default {
+  components: { Header },
+}
+</script>
 <style>
 html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',

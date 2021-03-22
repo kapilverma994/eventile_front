@@ -9,8 +9,6 @@
 export default {
   methods: {
     fetchuser() {
-      this.$axios.defaults.headers.common.authorization =
-        'Bearer 1|fHy3T9IfeiHik4mvZ34tgOrQGAvpHxubtCzudsAG'
       this.$axios
         .$post('http://127.0.0.1:8000/api/me')
 

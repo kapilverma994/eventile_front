@@ -47,9 +47,9 @@ export default {
       this.$axios
         .$post('http://127.0.0.1:8000/api/login', this.form)
         .then((res) => {
-          this.form = ''
-          //   this.$router.push("/");
-          console.log(res.data)
+          this.$cookies.set('token', res)
+          this.$router.push('/')
+          // console.log(res.data)
           //    this.$notify({
           //       message: "Register Successfully 😍",
           //       duration: 3000,
