@@ -31,6 +31,7 @@
 <script>
 import errorField from '../components/util/errorField'
 export default {
+  middleware:'guest',
   components: { errorField },
   data() {
     return {
