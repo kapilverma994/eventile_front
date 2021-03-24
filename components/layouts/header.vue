@@ -15,8 +15,12 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
-          <li class="nav-item">
+          <li v-if="login" class="nav-item">
             <a class="nav-link active" @click.prevent="logout"> Logout</a>
+          </li>
+          <li v-else class="nav-item">
+            <a class="nav-link active" @click.prevent="logout"> Login</a>
+            <a class="nav-link active" @click.prevent="logout"> Register</a>
           </li>
         </ul>
       </div>
@@ -25,10 +29,10 @@
 </template>
 <script>
 export default {
-  data() {
-    return {
-      isloggedin: this.$cookies.get('token'),
-    }
+  computed: {
+    login() {
+      return this.$store.state.login
+    },
   },
   methods: {
     logout() {
@@ -37,6 +41,7 @@ export default {
         .$post('http://127.0.0.1:8000/api/logout')
         .then((res) => {
           this.$cookies.set('token')
+          this.$store.commit('logout')
           this.$router.push('/login')
           // console.log(res.data)
           //    this.$notify({

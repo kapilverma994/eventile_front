@@ -1,4 +1,8 @@
-export default function ({ store, redirect, app }){
+export default function ({
+  store,
+  redirect,
+  app
+}) {
   const token = app.$cookies.get('token')
   // If the user is not authenticated
   if (!token) {
