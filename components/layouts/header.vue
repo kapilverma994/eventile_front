@@ -25,6 +25,11 @@
 </template>
 <script>
 export default {
+  data() {
+    return {
+      isloggedin: this.$cookies.get('token'),
+    }
+  },
   methods: {
     logout() {
       // console.log('hii')
